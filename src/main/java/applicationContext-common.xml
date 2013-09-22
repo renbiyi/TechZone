@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+           ">
+   
+    <!-- 启用自动装配 -->     
+    <context:annotation-config />
+    <!-- 定义Spring扫描包的路径 -->
+	<context:component-scan base-package="cn.ediary" />
+	<context:component-scan base-package="cn.ediary.*.controller" />      
+	<context:component-scan base-package="cn.ediary.*.dao" />
+	<context:component-scan base-package="cn.ediary.*.service" />
+	<context:component-scan base-package="cn.ediary.*.mapper" />          
+	            
+    <!-- 启用事务注解 -->  
+    <tx:annotation-driven /> 
+           
+    <bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+	
+    <!-- 配置DataSource数据源 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+    </bean>
+    
+    <!-- 配置SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+	    <!-- mapper和resultmap配置路径 --> 
+	    <property name="mapperLocations">
+	        	<list> 
+	                <!-- 表示在cn.edu.bjut.mapper和resultmap包或以下所有目录中，以ResultMap.xml和Mapper.xml结尾所有文件 --> 
+	          		<!-- <value>classpath:cn/edu/bjut/resultmap/**/*ResultMap.xml</value>  -->
+	                <value>classpath:cn/ediary/mapper/*_mapper.xml</value>
+	          	</list>
+	        </property>
+    </bean> 
+    
+     <!-- 配置事务管理器，注意这里的dataSource和SqlSessionFactoryBean的dataSource要一致，不然事务就没有作用了 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>  
+    
+     <!-- PROPAGATION_SUPPORTS: 如果已经存在事务,则加入事务;如果没有事务,则以非事务的方式执行;   
+                PROPAGATION_MANDATORY: 使用当前事务, 如果没有, 则抛出异常;   
+                PROPAGATION_REQUIRED: 新建事务,如果当前有事务, 则挂起; P  
+                ROPAGATION_NOT_SUPPORTED:以非事务的方式执行, 如果当前有事务, 则挂起;   
+                PROPAGATION_NEVER:以非事务的方式执行, 如果当前有事务,则抛出异常;   
+                +/-Exception</prop> + 表示异常出现时事物提交 - 表示异常出现时事务回滚
+     --> 
+     <!-- 配置事务的传播特性 -->
+    <bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+        <property name="transactionManager" ref="transactionManager" />
+        <property name="transactionAttributes">
+            <props>
+                <prop key="add*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="edit*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="insert*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">readOnly</prop>
+            </props>
+        </property>
+    </bean>  
+    
+    <!-- 通过扫描的模式，扫描目录在cn.edu.bjut.user.mapper目录下 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.ediary.mapper"/>
+    </bean>
+    
+     
+</beans>
