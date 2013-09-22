@@ -36,7 +36,7 @@
 		</property>
 	</bean>
 	
-    <!-- 配置DataSource数据源 -->
+	 <!-- 配置DataSource数据源 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
@@ -51,12 +51,10 @@
 	    <!-- mapper和resultmap配置路径 --> 
 	    <property name="mapperLocations">
 	        	<list> 
-	                <!-- 表示在cn.edu.bjut.mapper和resultmap包或以下所有目录中，以ResultMap.xml和Mapper.xml结尾所有文件 --> 
-	          		<!-- <value>classpath:cn/edu/bjut/resultmap/**/*ResultMap.xml</value>  -->
 	                <value>classpath:cn/ediary/mapper/*_mapper.xml</value>
 	          	</list>
 	        </property>
-    </bean> 
+    </bean>    
     
      <!-- 配置事务管理器，注意这里的dataSource和SqlSessionFactoryBean的dataSource要一致，不然事务就没有作用了 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

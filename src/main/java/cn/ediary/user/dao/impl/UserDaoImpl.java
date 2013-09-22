@@ -18,15 +18,13 @@ public  class UserDaoImpl implements UserDao{
 	private UserMapper userMapper;
 	
 	public List<User> getUserList() {
-
 		return userMapper.getUserList();
 		//return getSqlSession().selectList("getUserList");
 	}
 
 	public void addUser(User u) {
-		System.out.println("add user!!!");
-		//userMapper.addUser(u);
-		//getSqlSession().insert("addUser", u);
+		userMapper.addUser(u);
+		System.out.println("add user success!!!");
 	}
 
 }

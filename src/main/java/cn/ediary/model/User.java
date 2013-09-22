@@ -2,12 +2,18 @@ package cn.ediary.model;
 
 import java.io.Serializable;
 
-public class User{
+import net.sf.json.JSONObject;
+
+public class User implements Serializable{
 	
 	private int uid;
 	private String password;
 	private String username;
-
+	
+	public User(){
+		
+	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -33,6 +39,14 @@ public class User{
    
     @Override
     public String toString(){
-    	return this.uid+"#"+this.username+"#"+this.password+"#";
+    	return toJson();
+    }
+    
+    public String toJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("uid", uid);
+        jo.put("password", password);
+        jo.put("username", username);
+        return jo.toString();
     }
 }

@@ -12,15 +12,14 @@ import cn.ediary.user.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 	
-//	@Autowired
-//	private UserDao userDao;
+	@Autowired
+	private UserDao userDao;
 	
 	public void addUser(User u) {
-//		userDao.addUser(u);
+		userDao.addUser(u);
 	}
 
 	public List<User> getUserList() {
-
 //		return userDao.getUserList();
 		return null;
 	}

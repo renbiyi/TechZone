@@ -8,8 +8,6 @@ import cn.ediary.model.User;
 
 @Component
 public interface UserMapper {
-
 	public List<User> getUserList();
-	
 	public void addUser(User u);
 }
