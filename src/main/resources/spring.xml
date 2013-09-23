@@ -28,11 +28,6 @@
 		</property>
 	</bean>
 	
-	<!-- 扫描mapper目录-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.techzone.mapper"/>
-    </bean>
-	
 	<import resource="classpath:spring-dataSource.xml" />
 	<import resource="classpath:spring-transaction.xml" />
 	             

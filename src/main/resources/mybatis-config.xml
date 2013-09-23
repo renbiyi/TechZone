@@ -4,10 +4,13 @@
 
 <configuration>
 
+	<!--
 	<settings>  
         <setting name="lazyLoadingEnabled" value="false" />  
     </settings>
+    -->
  
+ 	<!--
  	<typeAliases>
       <package name="com.techzone.model"/>
     </typeAliases>
@@ -23,6 +26,7 @@
 			</dataSource>
 		</environment>
 	</environments>
+	-->
 	
 	<!-- 
     <mappers>  

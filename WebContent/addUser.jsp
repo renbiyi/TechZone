@@ -25,7 +25,7 @@
   </head>
   
   <body>
-   		<form action="user/addUser.action"  method="post">
+   		<form action="user/save.do"  method="post">
      		<input type="text" name="username"/><br>
      		<input type="text" name="password"/><br>
      		<input type="submit" value="Ìá½»"/>

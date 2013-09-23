@@ -2,8 +2,6 @@ package com.techzone.model;
 
 import java.io.Serializable;
 
-import net.sf.json.JSONObject;
-
 public class User implements Serializable{
 	
 	private int uid;
@@ -39,14 +37,7 @@ public class User implements Serializable{
    
     @Override
     public String toString(){
-    	return toJson();
+    	return this.toString();
     }
     
-    public String toJson() {
-        JSONObject jo = new JSONObject();
-        jo.put("uid", uid);
-        jo.put("password", password);
-        jo.put("username", username);
-        return jo.toString();
-    }
 }

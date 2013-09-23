@@ -11,24 +11,24 @@
         <result property="password" column="password"/>
     </resultMap>
 
-	<select id="getUserList"  resultType="list" resultMap="userResultMap">
+	<select id="getUserList" resultMap="userResultMap">
             select * from user
     </select>
 
 	 <!-- 自动生成id策略  -->
-    <insert id="addUser" useGeneratedKeys="true" keyProperty="uid" parameterType="user">
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="uid" parameterType="com.techzone.model.User">
         insert into user(uid, username, password)
         values(#{uid}, #{username}, #{password})
     </insert>
    
-	<update id="edit" parameterType="user">
+	<update id="edit" parameterType="com.techzone.model.User">
         update user set
         username = #{username},
         password = #{password},
         where uid = #{uid}
     </update>
     
-    <delete id="remove" parameterType="user">
+    <delete id="remove" parameterType="com.techzone.model.User">
         delete from user where uid = #{uid}
     </delete>
 	
