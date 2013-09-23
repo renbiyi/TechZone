@@ -40,7 +40,7 @@
 
 	<!-- 扫描mapper目录 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.techzone.**.mapper" />
+		<property name="basePackage" value="com.techzone.**.dao" />
 	</bean>
 
 </beans>

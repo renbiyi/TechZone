@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.techzone.mapper.UserMapper">
+<mapper namespace="com.techzone.user.dao.UserDao">
 	
 	<!-- property是JavaBean的属性。column会和数据库属性字段对应 。将实体与数据库对应-->
 	<resultMap type="com.techzone.model.User" id="userResultMap">
