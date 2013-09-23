@@ -1,4 +1,4 @@
-package cn.ediary.model;
+package com.techzone.model;
 
 import java.io.Serializable;
 

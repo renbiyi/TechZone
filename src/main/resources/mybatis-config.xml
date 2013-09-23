@@ -7,15 +7,9 @@
 	<settings>  
         <setting name="lazyLoadingEnabled" value="false" />  
     </settings>
-
-<!-- 
-	<typeAliases>
-		<typeAlias alias="User" type="cn.ediary.User"/>
-	</typeAliases>
- -->
  
  	<typeAliases>
-      <package name="cn.ediary.model"/>
+      <package name="com.techzone.model"/>
     </typeAliases>
  	
 	<environments default="development">

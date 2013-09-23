@@ -1,4 +1,4 @@
-package cn.ediary.model;
+package com.techzone.model;
 
 public class Book {
 	private Integer id;   

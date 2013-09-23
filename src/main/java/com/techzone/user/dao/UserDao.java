@@ -1,9 +1,10 @@
-package cn.ediary.user.dao;
+package com.techzone.user.dao;
 
 import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
-import cn.ediary.model.User;
+import com.techzone.model.User;
 
 @Repository
 public interface UserDao {

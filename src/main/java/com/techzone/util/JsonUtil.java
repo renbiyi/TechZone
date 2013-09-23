@@ -1,4 +1,4 @@
-package cn.ediary.util;
+package com.techzone.util;
 
 import java.io.IOException;
 

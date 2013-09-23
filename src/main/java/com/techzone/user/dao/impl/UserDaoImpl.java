@@ -1,4 +1,4 @@
-package cn.ediary.user.dao.impl;
+package com.techzone.user.dao.impl;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import cn.ediary.mapper.UserMapper;
-import cn.ediary.model.User;
-import cn.ediary.user.dao.UserDao;
+import com.techzone.mapper.UserMapper;
+import com.techzone.model.User;
+import com.techzone.user.dao.UserDao;
 
 @Repository
 public  class UserDaoImpl implements UserDao{

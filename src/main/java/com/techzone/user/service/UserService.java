@@ -1,4 +1,4 @@
-package cn.ediary.user.service;
+package com.techzone.user.service;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.ediary.model.User;
+import com.techzone.model.User;
 
 @Service
 public interface UserService {

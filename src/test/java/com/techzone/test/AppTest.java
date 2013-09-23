@@ -1,4 +1,4 @@
-package cn.ediary.test;
+package com.techzone.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

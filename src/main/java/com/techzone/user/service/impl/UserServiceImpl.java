@@ -1,13 +1,14 @@
-package cn.ediary.user.service.impl;
+package com.techzone.user.service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import cn.ediary.model.User;
-import cn.ediary.user.dao.UserDao;
-import cn.ediary.user.service.UserService;
+import com.techzone.model.User;
+import com.techzone.user.dao.UserDao;
+import com.techzone.user.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{

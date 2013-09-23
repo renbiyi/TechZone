@@ -1,4 +1,4 @@
-package cn.ediary.common.controller;
+package com.techzone.common.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.ediary.user.service.UserService;
+import com.techzone.user.service.UserService;
 
 @Controller
 public class CommonController {

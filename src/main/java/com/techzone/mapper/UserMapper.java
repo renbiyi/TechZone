@@ -1,10 +1,10 @@
-package cn.ediary.mapper;
+package com.techzone.mapper;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import cn.ediary.model.User;
+import com.techzone.model.User;
 
 @Component
 public interface UserMapper {
