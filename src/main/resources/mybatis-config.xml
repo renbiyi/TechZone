@@ -4,34 +4,5 @@
 
 <configuration>
 
-	<!--
-	<settings>  
-        <setting name="lazyLoadingEnabled" value="false" />  
-    </settings>
-    -->
- 
- 	<!--
- 	<typeAliases>
-      <package name="com.techzone.model"/>
-    </typeAliases>
- 	
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC"/>
-			<dataSource type="POOLED">
-				<property name="driver" value="${jdbc.driverClassName}"/>
-				<property name="url" value="${jdbc.url}"/>
-				<property name="username" value="${jdbc.username}"/>
-				<property name="password" value="${jdbc.password}"/>
-			</dataSource>
-		</environment>
-	</environments>
-	-->
-	
-	<!-- 
-    <mappers>  
-        <mapper resource="cn/edu/bjut/mapper/userMapper.xml"/>  
-    </mappers> 
-    -->
     
 </configuration>

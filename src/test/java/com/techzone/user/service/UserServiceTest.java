@@ -2,8 +2,10 @@ package com.techzone.user.service;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
-import com.techzone.model.User;
+import com.techzone.account.bo.SysUser;
+import com.techzone.account.service.UserService;
 import com.techzone.test.util.SpringTransactionalTestCase;
 
 public class UserServiceTest extends SpringTransactionalTestCase {
@@ -12,12 +14,13 @@ public class UserServiceTest extends SpringTransactionalTestCase {
 	private UserService userService;
 	
 	@Test
+	@Rollback(false)
 	public void itShouldAddAUser() {
-		User u = new User();
+		SysUser u = new SysUser();
 		u.setUsername("张浩");
-		u.setPassword("ddd");
+		u.setId(20L);
 		
-		userService.addUser(u);
+		userService.save(u);
 	}
 
 }
